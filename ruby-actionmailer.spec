@@ -15,7 +15,7 @@ Patch0:	%{name}-sanity.patch
 URL:		http://actionpack.rubyonrails.org/
 BuildRequires:	ruby
 Requires:	ruby
-Requires:	ruby-ActionPack >= 1.5.1
+Requires:	ruby-ActionPack >= 1.7.0
 #BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
