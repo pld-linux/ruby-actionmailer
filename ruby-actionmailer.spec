@@ -33,9 +33,6 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{ruby_rubylibdir},%{ruby_ridir}}
 cp -a lib/* $RPM_BUILD_ROOT%{ruby_rubylibdir}
 cp -a ri/ri/* $RPM_BUILD_ROOT%{ruby_ridir}
-rm $RPM_BUILD_ROOT%{ruby_ridir}/CGI/*
-rm $RPM_BUILD_ROOT%{ruby_ridir}/Class/*
-rm $RPM_BUILD_ROOT%{ruby_ridir}/Logger/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
