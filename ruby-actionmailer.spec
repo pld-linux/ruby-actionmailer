@@ -11,6 +11,7 @@ License:	Ruby-alike
 Group:		Development/Languages
 Source0:	http://rubyforge.org/frs/download.php/3333/%{tarname}-%{version}.tgz
 # Source0-md5:	1943870e5ce3049ccb23ec86286c175c
+Patch0:	%{name}-sanity.patch
 URL:		http://actionpack.rubyonrails.org/
 BuildRequires:	ruby
 Requires:	ruby
@@ -28,6 +29,7 @@ elektronicznych na podstawie szablonów.
 
 %prep
 %setup -q -n %{tarname}-%{version}
+%patch0 -p1
 
 %build
 rm -rf lib/action_mailer/vendor
