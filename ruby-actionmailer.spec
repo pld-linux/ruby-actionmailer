@@ -5,12 +5,12 @@ Summary:	Mail generator library for Ruby
 Summary(pl):	Biblioteka do generowania listów w jêzyku Ruby
 Name:		ruby-ActionMailer
 %define tarname actionmailer
-Version:	0.7.1
+Version:	0.8.1
 Release:	1
 License:	Ruby-alike
 Group:		Development/Languages
-Source0:	http://rubyforge.org/frs/download.php/3333/%{tarname}-%{version}.tgz
-# Source0-md5:	1943870e5ce3049ccb23ec86286c175c
+Source0:	http://rubyforge.org/download.php/3687/%{tarname}-%{version}.tgz
+# Source0-md5:	a42f5aa93acbdb960c42a9180db6bf79
 Patch0:	%{name}-sanity.patch
 URL:		http://actionpack.rubyonrails.org/
 BuildRequires:	ruby
