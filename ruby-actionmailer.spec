@@ -2,6 +2,7 @@
 %define	ruby_ridir	%(ruby -r rbconfig -e 'include Config; print File.join(CONFIG["datadir"], "ri", CONFIG["ruby_version"], "system")')
 %define	ruby_version	%(ruby -r rbconfig -e 'print Config::CONFIG["ruby_version"]')
 Summary:	Mail generator library for Ruby
+Summary(pl):	Biblioteka do generowania listów w jêzyku Ruby
 Name:		ruby-ActionMailer
 %define tarname actionmailer
 Version:	0.6.1
@@ -20,6 +21,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Action Mailer uses the Action Pack library to generate template-driven
 email.
+
+%description -l pl
+Action Mailer u¿ywa biblioteki Action Pack do generowania listów
+elektronicznych na podstawie szablonów.
 
 %prep
 %setup -q -n %{tarname}-%{version}
