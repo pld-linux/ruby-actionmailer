@@ -1,0 +1,38 @@
+diff -ur o-actionmailer-0.7.1/lib/action_mailer/mail_helper.rb actionmailer-0.7.1/lib/action_mailer/mail_helper.rb
+--- o-actionmailer-0.7.1/lib/action_mailer/mail_helper.rb	2004-11-24 09:06:37.000000000 -0700
++++ actionmailer-0.7.1/lib/action_mailer/mail_helper.rb	2005-03-20 01:20:18.788544999 -0700
+@@ -1,4 +1,4 @@
+-require 'action_mailer/vendor/text/format'
++require 'text/format'
+ 
+ module MailHelper#:nodoc:
+   def block_format(text)
+@@ -14,4 +14,4 @@
+ 
+     formatted
+   end
+-end
+\ No newline at end of file
++end
+diff -ur o-actionmailer-0.7.1/lib/action_mailer.rb actionmailer-0.7.1/lib/action_mailer.rb
+--- o-actionmailer-0.7.1/lib/action_mailer.rb	2005-02-17 12:04:17.000000000 -0700
++++ actionmailer-0.7.1/lib/action_mailer.rb	2005-03-20 01:19:50.775968307 -0700
+@@ -32,15 +32,13 @@
+   end
+ end
+ 
+-$:.unshift(File.dirname(__FILE__) + "/action_mailer/vendor/")
+-
+ require 'action_mailer/base'
+ require 'action_mailer/mail_helper'
+-require 'action_mailer/vendor/tmail'
++require 'tmail'
+ require 'net/smtp'
+ 
+ ActionView::Base.class_eval { include MailHelper }
+ 
+ old_verbose, $VERBOSE = $VERBOSE, nil
+ TMail::Encoder.const_set("MAX_LINE_LEN", 200)
+-$VERBOSE = old_verbose
+\ No newline at end of file
++$VERBOSE = old_verbose
