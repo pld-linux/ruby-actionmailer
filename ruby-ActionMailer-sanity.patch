@@ -1,6 +1,6 @@
-diff -ur o-actionmailer-0.7.1/lib/action_mailer/mail_helper.rb actionmailer-0.7.1/lib/action_mailer/mail_helper.rb
---- o-actionmailer-0.7.1/lib/action_mailer/mail_helper.rb	2004-11-24 09:06:37.000000000 -0700
-+++ actionmailer-0.7.1/lib/action_mailer/mail_helper.rb	2005-03-20 01:20:18.788544999 -0700
+diff -ur actionmailer-1.0.0-o/lib/action_mailer/mail_helper.rb actionmailer-1.0.0/lib/action_mailer/mail_helper.rb
+--- actionmailer-1.0.0-o/lib/action_mailer/mail_helper.rb	2004-11-23 18:04:44.000000000 -0700
++++ actionmailer-1.0.0/lib/action_mailer/mail_helper.rb	2005-07-09 14:39:46.000000000 -0600
 @@ -1,4 +1,4 @@
 -require 'action_mailer/vendor/text/format'
 +require 'text/format'
@@ -14,25 +14,21 @@ diff -ur o-actionmailer-0.7.1/lib/action_mailer/mail_helper.rb actionmailer-0.7.
 -end
 \ No newline at end of file
 +end
-diff -ur o-actionmailer-0.7.1/lib/action_mailer.rb actionmailer-0.7.1/lib/action_mailer.rb
---- o-actionmailer-0.7.1/lib/action_mailer.rb	2005-02-17 12:04:17.000000000 -0700
-+++ actionmailer-0.7.1/lib/action_mailer.rb	2005-03-20 01:19:50.775968307 -0700
-@@ -32,15 +32,13 @@
+diff -ur actionmailer-1.0.0-o/lib/action_mailer.rb actionmailer-1.0.0/lib/action_mailer.rb
+--- actionmailer-1.0.0-o/lib/action_mailer.rb	2005-07-06 06:48:14.000000000 -0600
++++ actionmailer-1.0.0/lib/action_mailer.rb	2005-07-09 14:39:29.000000000 -0600
+@@ -32,13 +32,11 @@
    end
  end
  
 -$:.unshift(File.dirname(__FILE__) + "/action_mailer/vendor/")
 -
  require 'action_mailer/base'
+ require 'action_mailer/helpers'
  require 'action_mailer/mail_helper'
+ require 'action_mailer/quoting'
 -require 'action_mailer/vendor/tmail'
 +require 'tmail'
  require 'net/smtp'
  
- ActionView::Base.class_eval { include MailHelper }
- 
- old_verbose, $VERBOSE = $VERBOSE, nil
- TMail::Encoder.const_set("MAX_LINE_LEN", 200)
--$VERBOSE = old_verbose
-\ No newline at end of file
-+$VERBOSE = old_verbose
+ ActionMailer::Base.class_eval do
