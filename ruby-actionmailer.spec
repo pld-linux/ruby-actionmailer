@@ -1,6 +1,3 @@
-%define	ruby_rubylibdir	%(ruby -r rbconfig -e 'print Config::CONFIG["rubylibdir"]')
-%define	ruby_ridir	%(ruby -r rbconfig -e 'include Config; print File.join(CONFIG["datadir"], "ri", CONFIG["ruby_version"], "system")')
-%define	ruby_version	%(ruby -r rbconfig -e 'print Config::CONFIG["ruby_version"]')
 Summary:	Mail generator library for Ruby
 Summary(pl):	Biblioteka do generowania listów w jêzyku Ruby
 Name:		ruby-ActionMailer
@@ -12,6 +9,7 @@ Group:		Development/Languages
 Source0:	http://rubyforge.org/download.php/6575/%{tarname}-%{version}.tgz
 # Source0-md5:	3649c201096d5e4d0a45f34ddd253c60
 URL:		http://actionpack.rubyonrails.org/
+BuildRequires:	rpmbuild(macros) >= 1.263
 BuildRequires:	ruby
 Requires:	ruby
 Requires:	ruby-ActionPack >= 1.7.0
