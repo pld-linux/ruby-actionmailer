@@ -1,5 +1,5 @@
 Summary:	Mail generator library for Ruby
-Summary(pl.UTF-8):   Biblioteka do generowania listów w języku Ruby
+Summary(pl.UTF-8):	Biblioteka do generowania listów w języku Ruby
 Name:		ruby-ActionMailer
 %define tarname actionmailer
 Version:	1.1.5
