@@ -1,5 +1,5 @@
 Summary:	Mail generator library for Ruby
-Summary(pl):	Biblioteka do generowania listów w jêzyku Ruby
+Summary(pl.UTF-8):   Biblioteka do generowania listÃ³w w jÄ™zyku Ruby
 Name:		ruby-ActionMailer
 %define tarname actionmailer
 Version:	1.1.5
@@ -20,9 +20,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Action Mailer uses the Action Pack library to generate template-driven
 email.
 
-%description -l pl
-Action Mailer u¿ywa biblioteki Action Pack do generowania listów
-elektronicznych na podstawie szablonów.
+%description -l pl.UTF-8
+Action Mailer uÅ¼ywa biblioteki Action Pack do generowania listÃ³w
+elektronicznych na podstawie szablonÃ³w.
 
 %prep
 %setup -q -n %{tarname}-%{version}
