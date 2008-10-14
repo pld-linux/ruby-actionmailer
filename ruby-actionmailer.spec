@@ -29,11 +29,15 @@ elektronicznych na podstawie szablonów.
 
 %package rdoc
 Summary:	Documentation files for ActionMailer
+Summary(pl.UTF-8):	Dokumentacja do biblioteki ActionMailer
 Group:		Documentation
 Requires:	ruby >= 1:1.8.7-4
 
 %description rdoc
 Documentation files for ActionMailer.
+
+%description rdoc -l pl.UTF-8
+Dokumentacja do biblioteki ActionMailer.
 
 %prep
 %setup -q -n actionmailer-%{version}
