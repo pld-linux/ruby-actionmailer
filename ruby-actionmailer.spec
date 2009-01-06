@@ -10,6 +10,7 @@ Source0:	http://rubyforge.org/frs/download.php/45362/actionmailer-%{version}.tgz
 # Source0-md5:	ce75e1b795804a48d65707e610d9ce64
 URL:		http://rubyforge.org/projects/actionmailer/
 BuildRequires:	rpmbuild(macros) >= 1.484
+BuildRequires:	ruby >= 1:1.8.6
 BuildRequires:	ruby-modules
 %{?ruby_mod_ver_requires_eq}
 Requires:	ruby-ActionPack >= 1.7.0
@@ -47,6 +48,8 @@ rm -rf lib/action_mailer/vendor
 rdoc --ri --op ri lib
 rdoc --op rdoc lib
 %{__rm} -f ri/created.rid
+# external pkgs?
+rm -rf ri/Test
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -55,8 +58,6 @@ cp -a lib/* $RPM_BUILD_ROOT%{ruby_rubylibdir}
 cp -a ri/* $RPM_BUILD_ROOT%{ruby_ridir}
 cp -a rdoc $RPM_BUILD_ROOT%{ruby_rdocdir}/%{name}-%{version}-%{release}
 
-rm -rf $RPM_BUILD_ROOT%{ruby_ridir}/ri/Test
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -64,10 +65,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README
 %{ruby_rubylibdir}/action_mailer
+%{ruby_rubylibdir}/action_mailer.rb
 %{ruby_rubylibdir}/actionmailer.rb
 
 %files rdoc
 %defattr(644,root,root,755)
 %{ruby_rdocdir}/%{name}-%{version}-%{release}
-%{ruby_ridir}/ri/ActionMailer
-%{ruby_ridir}/ri/MailHelper
+%{ruby_ridir}/ActionMailer
+%{ruby_ridir}/MailHelper
