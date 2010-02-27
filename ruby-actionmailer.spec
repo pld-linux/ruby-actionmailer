@@ -15,6 +15,7 @@ BuildRequires:	ruby-modules
 %{?ruby_mod_ver_requires_eq}
 Requires:	ruby-actionpack >= 1.7.0
 Obsoletes:	ruby-ActionMailer
+Provides:	ruby-ActionMailer
 #BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
