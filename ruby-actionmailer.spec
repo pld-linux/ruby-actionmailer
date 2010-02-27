@@ -1,19 +1,19 @@
 %define pkgname actionmailer
 Summary:	Mail generator library for Ruby
 Summary(pl.UTF-8):	Biblioteka do generowania listów w języku Ruby
-Name:		ruby-ActionMailer
+Name:		ruby-%{pkgname}
 Version:	2.0.5
 Release:	1
 License:	Ruby-alike
 Group:		Development/Languages
-Source0:	http://rubyforge.org/frs/download.php/45362/actionmailer-%{version}.tgz
+Source0:	http://rubyforge.org/frs/download.php/45362/%{pkgname}-%{version}.tgz
 # Source0-md5:	ce75e1b795804a48d65707e610d9ce64
 URL:		http://rubyforge.org/projects/actionmailer/
 BuildRequires:	rpmbuild(macros) >= 1.484
 BuildRequires:	ruby >= 1:1.8.6
 BuildRequires:	ruby-modules
 %{?ruby_mod_ver_requires_eq}
-Requires:	ruby-ActionPack >= 1.7.0
+Requires:	ruby-actionpack >= 1.7.0
 #BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -56,7 +56,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{ruby_rubylibdir},%{ruby_ridir},%{ruby_rdocdir}}
 cp -a lib/* $RPM_BUILD_ROOT%{ruby_rubylibdir}
 cp -a ri/* $RPM_BUILD_ROOT%{ruby_ridir}
-cp -a rdoc $RPM_BUILD_ROOT%{ruby_rdocdir}/%{name}-%{version}-%{release}
+cp -a rdoc $RPM_BUILD_ROOT%{ruby_rdocdir}/%{pkgname}-%{version}-%{release}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -70,6 +70,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files rdoc
 %defattr(644,root,root,755)
-%{ruby_rdocdir}/%{name}-%{version}-%{release}
+%{ruby_rdocdir}/%{pkgname}-%{version}-%{release}
 %{ruby_ridir}/ActionMailer
 %{ruby_ridir}/MailHelper
