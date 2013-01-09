@@ -2,12 +2,12 @@
 Summary:	Mail generator library for Ruby
 Summary(pl.UTF-8):	Biblioteka do generowania listów w języku Ruby
 Name:		ruby-%{pkgname}
-Version:	2.3.14
+Version:	2.3.15
 Release:	1
 License:	Ruby-alike
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
-# Source0-md5:	b7c5ce36c1f5af30ac6fb34ca7c9237e
+# Source0-md5:	4accf6689a0631b599058f2169344b81
 Patch0:		%{name}-vendor.patch
 URL:		http://rubyforge.org/projects/actionmailer/
 BuildRequires:	rpmbuild(macros) >= 1.484
