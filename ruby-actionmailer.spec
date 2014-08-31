@@ -2,20 +2,18 @@
 Summary:	Mail generator library for Ruby
 Summary(pl.UTF-8):	Biblioteka do generowania listów w języku Ruby
 Name:		ruby-%{pkgname}
-Version:	2.3.16
-Release:	2
+Version:	3.2.19
+Release:	1
 License:	Ruby-alike
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
-# Source0-md5:	dee0e45c7b0877b61a6ad0450aedbaf0
-Patch0:		%{name}-vendor.patch
+# Source0-md5:	88ae7f86d4b8585a2108581145de6819
 URL:		http://rubyforge.org/projects/actionmailer/
 BuildRequires:	rpmbuild(macros) >= 1.484
 BuildRequires:	ruby >= 1:1.8.6
 BuildRequires:	ruby-modules
 %{?ruby_mod_ver_requires_eq}
-Requires:	ruby-actionpack >= 2.3.16
-Requires:	ruby-tmail
+Requires:	ruby-actionpack >= 3.2.19
 Requires:	ruby-text-format
 Obsoletes:	ruby-ActionMailer
 Provides:	ruby-ActionMailer
@@ -58,18 +56,16 @@ ri documentation for %{pkgname}.
 Dokumentacji w formacie ri dla %{pkgname}.
 
 %prep
-%setup -q -c
-%{__tar} xf %{SOURCE0} -O data.tar.gz | %{__tar} xz
-find -newer README  -o -print | xargs touch --reference %{SOURCE0}
-%patch0 -p1
-
-rm -r lib/action_mailer/vendor
+%setup -q -n %{pkgname}-%{version}
 
 %build
+# write .gemspec
+%__gem_helper spec
+
 rdoc --ri --op ri lib
 rdoc --op rdoc lib
 rm ri/created.rid
-rm -r ri/{Net,Test,Text}
+#rm -r ri/{system,Net,Test,Text}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -79,15 +75,20 @@ cp -a lib/* $RPM_BUILD_ROOT%{ruby_rubylibdir}
 cp -a ri/* $RPM_BUILD_ROOT%{ruby_ridir}
 cp -a rdoc $RPM_BUILD_ROOT%{ruby_rdocdir}/%{pkgname}-%{version}-%{release}
 
+# install gemspec
+install -d $RPM_BUILD_ROOT%{ruby_specdir}
+cp -p %{pkgname}-%{version}.gemspec $RPM_BUILD_ROOT%{ruby_specdir}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README
+%doc README.rdoc
 %{ruby_rubylibdir}/action_mailer
 %{ruby_rubylibdir}/action_mailer.rb
-%{ruby_rubylibdir}/actionmailer.rb
+%{ruby_rubylibdir}/rails/generators/mailer
+%{ruby_specdir}/%{pkgname}-%{version}.gemspec
 
 %files rdoc
 %defattr(644,root,root,755)
@@ -96,4 +97,3 @@ rm -rf $RPM_BUILD_ROOT
 %files ri
 %defattr(644,root,root,755)
 %{ruby_ridir}/ActionMailer
-%{ruby_ridir}/MailHelper
