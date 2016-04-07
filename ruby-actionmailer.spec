@@ -3,11 +3,12 @@ Summary:	Mail generator library for Ruby
 Summary(pl.UTF-8):	Biblioteka do generowania listów w języku Ruby
 Name:		ruby-%{pkgname}
 Version:	3.2.19
-Release:	6
+Release:	7
 License:	Ruby-alike
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
 # Source0-md5:	88ae7f86d4b8585a2108581145de6819
+Patch0:		mail26.patch
 URL:		http://rubyforge.org/projects/actionmailer/
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.665
@@ -52,6 +53,9 @@ Dokumentacji w formacie ri dla %{pkgname}.
 
 %prep
 %setup -q -n %{pkgname}-%{version}
+%{__gzip} -d metadata.gz
+%patch0 -p1
+%{__gzip} metadata
 
 %build
 # write .gemspec

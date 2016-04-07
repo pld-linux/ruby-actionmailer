@@ -1,0 +1,11 @@
+--- actionmailer-3.2.19/metadata~	2016-04-07 09:43:16.000000000 +0900
++++ actionmailer-3.2.19/metadata	2016-04-07 09:45:20.564003876 +0900
+@@ -38,7 +38,7 @@
+   requirement: &id002 !ruby/object:Gem::Requirement 
+     none: false
+     requirements: 
+-    - - ~>
++    - - ">="
+       - !ruby/object:Gem::Version 
+         hash: 19
+         segments: 
