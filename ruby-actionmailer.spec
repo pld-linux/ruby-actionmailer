@@ -54,7 +54,7 @@ Dokumentacji w formacie ri dla %{pkgname}.
 %prep
 %setup -q -n %{pkgname}-%{version}
 %{__gzip} -d metadata.gz
-%patch0 -p1
+%patch -P0 -p1
 %{__gzip} metadata
 
 %build
