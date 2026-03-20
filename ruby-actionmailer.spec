@@ -2,18 +2,21 @@
 Summary:	Mail generator library for Ruby
 Summary(pl.UTF-8):	Biblioteka do generowania listów w języku Ruby
 Name:		ruby-%{pkgname}
-Version:	3.2.19
-Release:	7
-License:	Ruby-alike
+Version:	8.1.2
+Release:	1
+License:	MIT
 Group:		Development/Languages
-Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
-# Source0-md5:	88ae7f86d4b8585a2108581145de6819
-Patch0:		mail26.patch
-URL:		http://rubyforge.org/projects/actionmailer/
+Source0:	https://rubygems.org/downloads/%{pkgname}-%{version}.gem
+URL:		https://rubyonrails.org
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.665
-Requires:	ruby-actionpack >= 3.2.19
-Requires:	ruby-text-format
+Requires:	ruby-actionpack = %{version}
+Requires:	ruby-actionview = %{version}
+Requires:	ruby-activejob = %{version}
+Requires:	ruby-activesupport = %{version}
+Requires:	ruby-mail >= 2.8.0
+Requires:	ruby-rails-dom-testing >= 2.2
+Requires:	ruby >= 3.2.0
 Provides:	ruby-ActionMailer
 Obsoletes:	ruby-ActionMailer
 BuildArch:	noarch
@@ -53,9 +56,6 @@ Dokumentacji w formacie ri dla %{pkgname}.
 
 %prep
 %setup -q -n %{pkgname}-%{version}
-%{__gzip} -d metadata.gz
-%patch -P0 -p1
-%{__gzip} metadata
 
 %build
 # write .gemspec
@@ -83,7 +83,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.rdoc
+%doc CHANGELOG.md MIT-LICENSE README.rdoc
 %{ruby_vendorlibdir}/action_mailer
 %{ruby_vendorlibdir}/action_mailer.rb
 %{ruby_vendorlibdir}/rails/generators/mailer
