@@ -2,8 +2,8 @@
 Summary:	Mail generator library for Ruby
 Summary(pl.UTF-8):	Biblioteka do generowania listów w języku Ruby
 Name:		ruby-%{pkgname}
-Version:	8.1.2
-Release:	2
+Version:	8.1.3
+Release:	1
 License:	MIT
 Group:		Development/Languages
 Source0:	https://rubygems.org/downloads/%{pkgname}-%{version}.gem
